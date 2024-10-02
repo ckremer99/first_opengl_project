@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0607C9CE2CADD8EF003E7771 /* libglfw.3.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0607C9CD2CADD8EF003E7771 /* libglfw.3.4.dylib */; };
 		06761AB72CACD1DA001BAF02 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06761AB62CACD1DA001BAF02 /* main.cpp */; };
-		06761AC52CACE293001BAF02 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 06761AC42CACE293001BAF02 /* libglfw.3.dylib */; };
 		06761AC82CACE472001BAF02 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06761AC22CACDF69001BAF02 /* OpenGL.framework */; };
 		06761ACA2CACE486001BAF02 /* libglfw.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 06761AC42CACE293001BAF02 /* libglfw.3.dylib */; };
 /* End PBXBuildFile section */
@@ -37,6 +37,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0607C9C92CADA98F003E7771 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.dylib; sourceTree = "<group>"; };
+		0607C9CB2CADA99D003E7771 /* GLFW */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GLFW; sourceTree = "<group>"; };
+		0607C9CD2CADD8EF003E7771 /* libglfw.3.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.4.dylib; path = ../../../../../opt/homebrew/Cellar/glfw/3.4/lib/libglfw.3.4.dylib; sourceTree = "<group>"; };
 		06761AB32CACD1DA001BAF02 /* first_opengl_project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = first_opengl_project; sourceTree = BUILT_PRODUCTS_DIR; };
 		06761AB62CACD1DA001BAF02 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		06761AC22CACDF69001BAF02 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -48,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06761AC52CACE293001BAF02 /* libglfw.3.dylib in Frameworks */,
+				0607C9CE2CADD8EF003E7771 /* libglfw.3.4.dylib in Frameworks */,
 				06761AC82CACE472001BAF02 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +96,7 @@
 		06761ABE2CACD27B001BAF02 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				0607C9CB2CADA99D003E7771 /* GLFW */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -109,6 +113,7 @@
 		06761AC02CACD2B1001BAF02 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				0607C9C92CADA98F003E7771 /* libglfw.3.dylib */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 		06761AC12CACDF69001BAF02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0607C9CD2CADD8EF003E7771 /* libglfw.3.4.dylib */,
 				06761AC42CACE293001BAF02 /* libglfw.3.dylib */,
 				06761AC22CACDF69001BAF02 /* OpenGL.framework */,
 			);
@@ -124,6 +130,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		0607C9CC2CADCEB6003E7771 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		06761AB22CACD1DA001BAF02 /* first_opengl_project */ = {
 			isa = PBXNativeTarget;
@@ -131,6 +147,7 @@
 			buildPhases = (
 				06761AAF2CACD1DA001BAF02 /* Sources */,
 				06761AB02CACD1DA001BAF02 /* Frameworks */,
+				0607C9CC2CADCEB6003E7771 /* Headers */,
 				06761AB12CACD1DA001BAF02 /* CopyFiles */,
 				06761ACB2CACE486001BAF02 /* Embed Libraries */,
 			);
@@ -303,10 +320,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = ./first_opengl_project/dependencies/include;
-				LIBRARY_SEARCH_PATHS = (
-					./first_opengl_project/dependencies/lib,
-					"$(PROJECT_DIR)/first_opengl_project/dependencies/lib",
-				);
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.4/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -316,10 +330,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = ./first_opengl_project/dependencies/include;
-				LIBRARY_SEARCH_PATHS = (
-					./first_opengl_project/dependencies/lib,
-					"$(PROJECT_DIR)/first_opengl_project/dependencies/lib",
-				);
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.4/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
