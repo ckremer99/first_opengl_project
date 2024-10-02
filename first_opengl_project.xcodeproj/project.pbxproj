@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		06761AB72CACD1DA001BAF02 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06761AB62CACD1DA001BAF02 /* main.cpp */; };
+		06761AC52CACE293001BAF02 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 06761AC42CACE293001BAF02 /* libglfw.3.dylib */; };
+		06761AC82CACE472001BAF02 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06761AC22CACDF69001BAF02 /* OpenGL.framework */; };
+		06761ACA2CACE486001BAF02 /* libglfw.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 06761AC42CACE293001BAF02 /* libglfw.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,11 +23,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		06761ACB2CACE486001BAF02 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				06761ACA2CACE486001BAF02 /* libglfw.3.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06761AB32CACD1DA001BAF02 /* first_opengl_project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = first_opengl_project; sourceTree = BUILT_PRODUCTS_DIR; };
 		06761AB62CACD1DA001BAF02 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		06761AC22CACDF69001BAF02 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		06761AC42CACE293001BAF02 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = first_opengl_project/dependencies/lib/libglfw.3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06761AC52CACE293001BAF02 /* libglfw.3.dylib in Frameworks */,
+				06761AC82CACE472001BAF02 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +61,7 @@
 			children = (
 				06761AB52CACD1DA001BAF02 /* first_opengl_project */,
 				06761AB42CACD1DA001BAF02 /* Products */,
+				06761AC12CACDF69001BAF02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +76,50 @@
 		06761AB52CACD1DA001BAF02 /* first_opengl_project */ = {
 			isa = PBXGroup;
 			children = (
-				06761AB62CACD1DA001BAF02 /* main.cpp */,
+				06761ABD2CACD258001BAF02 /* src */,
+				06761ABF2CACD296001BAF02 /* dependencies */,
 			);
 			path = first_opengl_project;
+			sourceTree = "<group>";
+		};
+		06761ABD2CACD258001BAF02 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				06761AB62CACD1DA001BAF02 /* main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		06761ABE2CACD27B001BAF02 /* include */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		06761ABF2CACD296001BAF02 /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				06761AC02CACD2B1001BAF02 /* lib */,
+				06761ABE2CACD27B001BAF02 /* include */,
+			);
+			path = dependencies;
+			sourceTree = "<group>";
+		};
+		06761AC02CACD2B1001BAF02 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		06761AC12CACDF69001BAF02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06761AC42CACE293001BAF02 /* libglfw.3.dylib */,
+				06761AC22CACDF69001BAF02 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +132,7 @@
 				06761AAF2CACD1DA001BAF02 /* Sources */,
 				06761AB02CACD1DA001BAF02 /* Frameworks */,
 				06761AB12CACD1DA001BAF02 /* CopyFiles */,
+				06761ACB2CACE486001BAF02 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -241,6 +302,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = ./first_opengl_project/dependencies/include;
+				LIBRARY_SEARCH_PATHS = (
+					./first_opengl_project/dependencies/lib,
+					"$(PROJECT_DIR)/first_opengl_project/dependencies/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -249,6 +315,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = ./first_opengl_project/dependencies/include;
+				LIBRARY_SEARCH_PATHS = (
+					./first_opengl_project/dependencies/lib,
+					"$(PROJECT_DIR)/first_opengl_project/dependencies/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
